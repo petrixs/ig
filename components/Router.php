@@ -2,9 +2,9 @@
 
 namespace Application\components;
 
+use Application\exceptions\InitializationException;
 use Application\exceptions\NotFoundException;
 use Application\interfaces\ConfigurableInterface;
-use Application\interfaces\InitializationException;
 use Application\interfaces\RequestInterface;
 use Application\interfaces\RouterInterface;
 use Application\traits\ConfigurableTrait;
@@ -36,13 +36,24 @@ class Router implements RouterInterface, ConfigurableInterface {
 
             $route_path = explode('/', $this->_config['routes'][$path]);
 
-            $controller = $route_path[0];
+            $controller = ucfirst($route_path[0]).'Controller';
             $method = $route_path[1];
 
-            if(class_exists($this->_config['controllerNamespace'].ucfirst($controller).'Controller')){
-                $controller = new $this->_config['controllerNamespace'].ucfirst($controller).'Controller';
+            $controllerFullPath = $this->_config['controllerNamespace'].'\\'.$controller;
+
+
+            if(class_exists($controllerFullPath)){
+
+                $controllerInstance = new $controllerFullPath;
+
+                if(is_callable([$controllerInstance, $method])) {
+                    $controllerInstance->$method();
+                } else {
+                    throw new InitializationException('Controller '.$controller.' method '.$method.' not found');
+                }
+
             } else {
-                throw new InitializationException('Controller not found');
+                throw new InitializationException('Controller '.$controller.' not found');
             }
 
         } else {

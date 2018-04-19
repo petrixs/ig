@@ -1,0 +1,25 @@
+{
+  "name": "petrixs/IG",
+  "description": "description_text",
+  "minimum-stability": "dev",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Peter Tsesar",
+      "email": "petrixs@gmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=7.1"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "4.0.*"
+  },
+  "autoload": {
+    "psr-4": {
+      "\\LG\\": "src",
+      "\\Application\\": "/"
+    }
+  }
+}

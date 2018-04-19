@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+
+    <head>
+        <title>Test title</title>
+        <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    </head>
+
+    <body>
+
+        <form id="searchform">
+            <input type="text" name="searchstring" />
+
+            <label for="type">Source type: </label>
+            <select name="type" id="type">
+                <option value="array">Array</option>
+                <option value="xml">Xml</option>
+                <option value="json">Json</option>
+            </select>
+
+            <input type="button" value="search" />
+        </form>
+
+        <div id="result">
+
+        </div>
+
+    </body>
+
+</html>

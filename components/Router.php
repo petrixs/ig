@@ -7,6 +7,7 @@ use Application\exceptions\NotFoundException;
 use Application\interfaces\ConfigurableInterface;
 use Application\interfaces\RequestInterface;
 use Application\interfaces\RouterInterface;
+use Application\interfaces\ViewControllerInterface;
 use Application\traits\ConfigurableTrait;
 
 class Router implements RouterInterface, ConfigurableInterface {
@@ -21,10 +22,11 @@ class Router implements RouterInterface, ConfigurableInterface {
     }
 
     /**
+     * @todp: too many logic, decomposite on methods
      * Dispatch route and init controller
      * @throws NotFoundException
      */
-    public function dispatch()
+    public function dispatch(): void
     {
         if(!$this->request)
             throw new InitializationException('Request is empty');
@@ -45,6 +47,20 @@ class Router implements RouterInterface, ConfigurableInterface {
             if(class_exists($controllerFullPath)){
 
                 $controllerInstance = new $controllerFullPath;
+
+                if($controllerInstance instanceof ViewControllerInterface)
+                {
+                    /**
+                     * @var object $templateEngine
+                     */
+                    $templateEngine = new $this->_config['view']['class'];
+
+                    $controllerInstance->initTemplateEngine(
+                        $templateEngine::init(
+                            $this->_config['view']
+                        )
+                    );
+                }
 
                 if(is_callable([$controllerInstance, $method])) {
                     $controllerInstance->$method();

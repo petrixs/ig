@@ -2,10 +2,19 @@
 
 namespace Application\controllers;
 
-class StorageController {
+use Application\components\MainController;
+
+class StorageController extends MainController {
 
     public function index() {
-        echo 1;
+
+        $result = 'test';
+
+
+        $this->view->display('index.html', [
+            'result' => $result
+        ]);
+
     }
 
 }

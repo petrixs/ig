@@ -8,5 +8,5 @@ interface RouterInterface {
 
     public function setRequest(RequestInterface $request);
 
-    public function dispatch(): array;
+    public function dispatch();
 }

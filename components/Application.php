@@ -79,7 +79,7 @@ class Application {
             $instance->setConfig($this->config[$component]);
         }
 
-        return new $router($this->config[$component]);
+        return $instance;
     }
 
 }

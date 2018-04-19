@@ -3,10 +3,13 @@
 return [
 
     'router' => [
-        'class' => 'IG\components\Router',
+        'class' => '\Application\components\Router',
         'routes' => [
             'GET /' => 'storage/index'
         ]
+    ],
+    'request' => [
+        'class' => '\Application\components\Request',
     ]
 
 ];

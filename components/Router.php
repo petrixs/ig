@@ -2,10 +2,15 @@
 
 namespace Application\components;
 
+use Application\interfaces\ConfigurableInterface;
 use Application\interfaces\InitializationException;
 use Application\interfaces\RequestInterface;
+use Application\interfaces\RouterInterface;
+use Application\traits\ConfigurableTrait;
 
-class Router implements RouterInterface {
+class Router implements RouterInterface, ConfigurableInterface {
+
+    use ConfigurableTrait;
 
     protected $request;
 
@@ -18,6 +23,8 @@ class Router implements RouterInterface {
     {
         if(!$this->request)
             throw new InitializationException('Request is empty');
+
+        var_dump($this->request->server);exit();
 
     }
 

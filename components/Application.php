@@ -2,8 +2,10 @@
 
 namespace Application\components;
 
-use Application\interfaces\InitializationException;
+use Application\exceptions\InitializationException;
+use Application\interfaces\ConfigurableInterface;
 use Application\interfaces\RequestInterface;
+use Application\interfaces\RouterInterface;
 
 /**
  * Class Application - main application class
@@ -29,7 +31,7 @@ class Application {
      * @param array $config
      * @throws InitializationException
      */
-    public function __construct(array $config): void
+    public function __construct(array $config)
     {
         $this->config  = $config;
 
@@ -62,13 +64,20 @@ class Application {
      */
     protected function initComponent($component) {
 
-        if(!isset($config[$component]) || !isset($config[$component]['class']))
+        if(!isset($this->config[$component]) || !isset($this->config[$component]['class']))
             throw new InitializationException($component . ' component doesn\'t exist in file configuration');
 
         if(!class_exists($this->config[$component]['class']))
             throw new InitializationException($component . ' class doesn\'t exist');
 
-        $router = new $this->config[$component]['class'];
+        $instance = new $this->config[$component]['class'];
+
+        /**
+         * Check for config support
+         */
+        if($instance instanceof ConfigurableInterface) {
+            $instance->setConfig($this->config[$component]);
+        }
 
         return new $router($this->config[$component]);
     }

@@ -1,5 +1,5 @@
 <?php
 
-namespace Application\interfaces;
+namespace Application\exceptions;
 
 class InitializationException extends \Exception {}

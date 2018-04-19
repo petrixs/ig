@@ -1,8 +1,8 @@
 <?php
 
-namespace Application\components;
+namespace Application\interfaces;
 
-use Application\interfaces\RequestInterface;
+use Application\traits\RepositoryTrait;
 
 interface RouterInterface {
 

@@ -18,8 +18,8 @@
   },
   "autoload": {
     "psr-4": {
-      "\\LG\\": "src",
-      "\\Application\\": "/"
+      "LG\\": "src",
+      "Application\\": "."
     }
   }
 }

@@ -1,6 +1,6 @@
 # ig
 
-nginx config
+Nginx config
 
 ````
 server {
@@ -33,4 +33,10 @@ server {
         deny all;
     }
 }
+````
 
+Tests:
+
+````
+./vendor/bin/phpunit --verbose --debug --colors
+````

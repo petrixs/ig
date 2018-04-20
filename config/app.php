@@ -10,9 +10,9 @@ return [
         ],
         'view' => [
             'class' => '\Application\components\Twig',
-            'templateDir' => ['views'],
+            'templateDir' => ['../views'],
             'params' => [
-                'cache' => "cache",
+                'cache' => "../cache",
                 'auto_reload' => true
             ]
         ]

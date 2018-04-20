@@ -7,11 +7,6 @@ use IG\interfaces\DataProviderInterface;
 
 class JsonDataProvider extends DataProvider implements DataProviderInterface {
 
-    public function __construct()
-    {
-        $this->data = file_get_contents('data/data.json');
-    }
-
     public function getData():array {
 
         $result = [];

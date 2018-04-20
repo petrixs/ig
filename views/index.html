@@ -6,63 +6,70 @@
 
     <body>
 
-        <form action="/" method="get" id="searchform">
+        <div id="content">
+            <form action="/" method="get" id="searchform">
 
-            <label for="type">Source type: </label>
-            <select name="type" id="type">
-                <option value="array">Array</option>
-                <option value="xml">Xml</option>
-                <option value="json">Json</option>
-            </select>
+                <label for="type">Source type: </label>
+                <select name="type" id="type">
+                    <option value="array">Array</option>
+                    <option value="xml">Xml</option>
+                    <option value="json">Json</option>
+                </select>
+
+                <br /><br />
+
+                <label for="sort">Sort by: </label>
+                <select name="sort" id="sort">
+                    <option value="">Unsorted</option>
+                    <option value="price">Price</option>
+                    <option value="code">Code</option>
+                    <option value="name">Name</option>
+                </select>
+
+                <select name="sort_type" id="sort">
+                    <option value="asc">ASC</option>
+                    <option value="desc">DESC</option>
+                </select>
+
+                <br /><br />
+
+                <label for="filter">Filter by:</label>
+
+                <select name="filter" id="filter">
+                    <option value="price">Price</option>
+                    <option value="code">Code</option>
+                    <option value="name">Name</option>
+                </select>
+
+                <select name="filter_type" id="filter_type">
+                    <option value=">">></option>
+                    <option value="<"><</option>
+                    <option value="like">like</option>
+                </select>
+
+                <input type="text" name="filter_value" />
+
+                <br /><br />
+
+                <label for="group">Group by: </label>
+                <select name="group" id="group">
+                    <option value="">All</option>
+                    <option value="europe">Europe</option>
+                    <option value="world">World</option>
+                </select>
+
+                <br /><br />
+                <input type="submit" value="search" />
+            </form>
 
             <br /><br />
 
-            <label for="sort">Sort by: </label>
-            <select name="sort" id="sort">
-                <option value="">Unsorted</option>
-                <option value="price">Price</option>
-                <option value="code">Code</option>
-                <option value="name">Name</option>
-            </select>
+            <div id="result">
+                <pre>
+{{result}}
+                </pre>
+            </div>
 
-            <select name="sort_type" id="sort">
-                <option value="asc">ASC</option>
-                <option value="desc">DESC</option>
-            </select>
-
-            <br /><br />
-
-            <label for="filter">Filter by:</label>
-
-            <select name="filter" id="filter">
-                <option value="price">Price</option>
-                <option value="code">Code</option>
-                <option value="name">Name</option>
-            </select>
-
-            <select name="filter_type" id="filter_type">
-                <option value=">">></option>
-                <option value="<"><</option>
-                <option value="like">like</option>
-            </select>
-
-            <input type="text" name="filter_value" />
-
-            <br /><br />
-
-            <label for="group">Group by: </label>
-            <select name="group" id="group">
-                <option value="">All</option>
-                <option value="europe">Europe</option>
-                <option value="world">World</option>
-            </select>
-
-            <br /><br />
-            <input type="submit" value="search" />
-        </form>
-
-        <div id="result">
-            {{result|json_encode()}}
         </div>
 
     </body>

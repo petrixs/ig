@@ -7,10 +7,6 @@ use IG\interfaces\DataProviderInterface;
 
 class ArrayDataProvider extends DataProvider implements DataProviderInterface {
 
-    public function __construct()
-    {
-        $this->data = require 'data/data.php';
-    }
 
     public function getData():array {
 

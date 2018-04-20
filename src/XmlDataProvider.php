@@ -4,13 +4,11 @@ namespace IG;
 
 use IG\exceptions\InvalidDataException;
 use IG\interfaces\DataProviderInterface;
+use IG\interfaces\LoaderInterface;
 
 class XmlDataProvider extends DataProvider implements DataProviderInterface {
 
-    public function __construct()
-    {
-        $this->data = file_get_contents('data/data.xml');
-    }
+
 
     public function getData():array {
 

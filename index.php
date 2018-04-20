@@ -1,5 +1,7 @@
 <?php
 
+//todo: move file to single folder
+
 use Application\components\Application;
 
 require_once __DIR__ .'/vendor/autoload.php';

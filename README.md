@@ -12,6 +12,12 @@
  
  Вроде все что вспомнил по памяти :)
  
+ Как запустить:
+ 
+ 1. Git clone
+ 2. composer up
+ 3. Nginx config(указан ниже) + nginx reload
+ 
 ````
 
 Nginx config

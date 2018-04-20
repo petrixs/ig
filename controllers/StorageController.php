@@ -27,8 +27,7 @@ class StorageController extends MainController {
                 /**
                  * Factory for data type
                  */
-                $providerFactory = new ProviderFactory();
-                $provider = $providerFactory::factory($_GET['type']);
+                $provider = ProviderFactory::factory($_GET['type']);
 
                 /**
                  * Insert provider to aggregator

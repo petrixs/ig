@@ -42,6 +42,8 @@ class StorageController extends MainController {
 
         }
 
+        var_dump($result); exit();
+
         $this->view->display('index.html', [
             'result' => $result
         ]);

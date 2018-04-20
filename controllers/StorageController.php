@@ -11,7 +11,7 @@ class StorageController extends MainController {
 
     public function index() {
 
-        $result = false;
+        $result = 'empty result';
 
         // @todo: move superglobals to application request object
         if(isset($_GET['type'])) {
@@ -41,8 +41,6 @@ class StorageController extends MainController {
             }
 
         }
-
-        var_dump($result); exit();
 
         $this->view->display('index.html', [
             'result' => $result

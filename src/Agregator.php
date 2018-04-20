@@ -72,7 +72,7 @@ class Agregator {
     }
 
     public function applyGroup($groupName) {
-        foreach($this->data as $k) {
+        foreach($this->data as $k => $v) {
             if($k != $groupName) {
                 unset($this->data[$k]);
             }

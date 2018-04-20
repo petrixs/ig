@@ -1,15 +1,12 @@
 <!doctype html>
 <html>
-
     <head>
         <title>Test title</title>
-        <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     </head>
 
     <body>
 
-        <form id="searchform">
-            <input type="text" name="searchstring" />
+        <form action="/" method="get" id="searchform">
 
             <label for="type">Source type: </label>
             <select name="type" id="type">
@@ -18,13 +15,7 @@
                 <option value="json">Json</option>
             </select>
 
-            <label for="sort">Sort by: </label>
-            <select name="sort" id="sort">
-                <option value="">Unsorted</option>
-                <option value="price">Price</option>
-                <option value="code">Code</option>
-                <option value="name">Name</option>
-            </select>
+            <br /><br />
 
             <label for="sort">Sort by: </label>
             <select name="sort" id="sort">
@@ -34,7 +25,40 @@
                 <option value="name">Name</option>
             </select>
 
-            <input type="button" value="search" />
+            <select name="sort_type" id="sort">
+                <option value="asc">ASC</option>
+                <option value="desc">DESC</option>
+            </select>
+
+            <br /><br />
+
+            <label for="filter">Filter by:</label>
+
+            <select name="filter" id="filter">
+                <option value="price">Price</option>
+                <option value="code">Code</option>
+                <option value="name">Name</option>
+            </select>
+
+            <select name="filter_type" id="filter_type">
+                <option value=">">></option>
+                <option value="<"><</option>
+                <option value="like">like</option>
+            </select>
+
+            <input type="text" name="filter_value" />
+
+            <br /><br />
+
+            <label for="group">Group by: </label>
+            <select name="group" id="group">
+                <option value="">All</option>
+                <option value="europe">Europe</option>
+                <option value="world">World</option>
+            </select>
+
+            <br /><br />
+            <input type="submit" value="search" />
         </form>
 
         <div id="result">

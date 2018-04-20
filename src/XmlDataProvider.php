@@ -2,10 +2,15 @@
 
 namespace IG;
 
-use IG\exceptions\IvalidDataException;
+use IG\exceptions\InvalidDataException;
 use IG\interfaces\DataProviderInterface;
 
 class XmlDataProvider extends DataProvider implements DataProviderInterface {
+
+    public function __construct()
+    {
+        $this->data = file_get_contents('data/data.xml');
+    }
 
     public function getData():array {
 
@@ -14,14 +19,17 @@ class XmlDataProvider extends DataProvider implements DataProviderInterface {
         $result = null;
 
         if(!$data) {
-            throw new IvalidDataException('Invalid json data');
+            throw new InvalidDataException('Invalid xml data');
         }
 
+        foreach($data as $k => $node) {
 
-        foreach($data as $key => $value) {
-
+            $result[(string)$node->attributes()['Type']][] = [
+                'code'  => (string)$node->Code,
+                'price' => (string)$node->Value,
+                'name'  => (string)$node->Description
+            ];
         }
-
 
         return $result;
     }

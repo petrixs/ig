@@ -31,8 +31,9 @@ class Router implements RouterInterface, ConfigurableInterface {
         if(!$this->request)
             throw new InitializationException('Request is empty');
 
-        $path = $this->request->server['REQUEST_METHOD'].' '.$this->request->server['REQUEST_URI'];
+        $request_uri_parts = explode('?', $this->request->server['REQUEST_URI']);
 
+        $path = $this->request->server['REQUEST_METHOD'].' '.$request_uri_parts[0];
 
         if(isset($this->_config['routes'][$path])) {
 

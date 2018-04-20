@@ -40,3 +40,36 @@ Tests:
 ````
 ./vendor/bin/phpunit --verbose --debug --colors
 ````
+
+Test results:
+
+````
+ig branch: master petr$ ./vendor/bin/phpunit --verbose --debug --colors
+PHPUnit 4.0.20-17-gc4051e4b2 by Sebastian Bergmann.
+
+Configuration read from /private/var/www/innovationgroup/ig/phpunit.xml
+
+
+Starting test 'SorterTest::testJsonLoaders'.
+.
+Starting test 'SorterTest::testXMLLoaders'.
+.
+Starting test 'SorterTest::testARRAYLoaders'.
+.
+Starting test 'SorterTest::testProviderFactory'.
+.
+Starting test 'SorterTest::testGroup'.
+.
+Starting test 'SorterTest::testSort'.
+.
+Starting test 'SorterTest::testFilterNumberGreater'.
+.
+Starting test 'SorterTest::testFilterNumberLess'.
+.
+Starting test 'SorterTest::testFilterStringLike'.
+.
+
+Time: 45 ms, Memory: 4.00MB
+
+OK (9 tests, 13 assertions)
+````

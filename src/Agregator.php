@@ -28,7 +28,7 @@ class Agregator {
 
             foreach ($inventory as $key => $row)
             {
-                $sorted[$key] = $row['price'];
+                $sorted[$key] = $row[$param];
             }
 
             if($type == self::SORT_TYPE_DESC)

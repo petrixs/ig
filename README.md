@@ -31,7 +31,7 @@ server {
     listen 80; ## listen for ipv4
     #listen [::]:80 default_server ipv6only=on; ## listen for ipv6
     server_name ig.loc;
-    root /var/www/innovationgroup/ig/web;
+    root /var/www/ig/web;
     index index.php;
     access_log /var/log/access.log;
     error_log /var/log/error.log;

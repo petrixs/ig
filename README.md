@@ -69,7 +69,7 @@ Test results:
 ig branch: master petr$ ./vendor/bin/phpunit --verbose --debug --colors
 PHPUnit 4.0.20-17-gc4051e4b2 by Sebastian Bergmann.
 
-Configuration read from /private/var/www/ig/ig/phpunit.xml
+Configuration read from /private/var/www/ig/phpunit.xml
 
 
 Starting test 'SorterTest::testJsonLoaders'.
